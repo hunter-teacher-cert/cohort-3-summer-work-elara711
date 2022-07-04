@@ -8,44 +8,59 @@
 import java.io.*;
 import java.util.*;
 import java.lang.Math;
-import
-
 
 public class Nim
   {
       public static void main( String[]  args  )
     {
-        int stones =12;
+        int stonesInitial =12;
+        int stonesRemain=stonesInitial;
         int stonesTaken;
-
+     
         Scanner input = new Scanner(System.in);
 
-      // loop unitl game ends
+      // loop until game ends
       
-      while (stones > 0) 
+      while (stonesRemain > 0) 
       {
         // prompt user input (user turn)
-        System.out.print("How many stonde do you want to take?");
+        System.out.print("Your Turn: Take 1-3 stones.");
         stonesTaken  =  input.nextInt();
-        System.out.print("You took ""+ stonesTaken + "stones.");        
-        
+        System.out.println("You took "+ stonesTaken + " stones.");        
         // calculate number of stone remaining, print
-        stonesTaken=stones-stonesTaken;
-        Sy
-        // shceck for win
+        stonesRemain-=stonesTaken;
+        System.out.println("Stones Remaining =" + stonesRemain);
+        System.out.println(""); 
+        // check for win condition
+        if(stonesRemain==0)
+        {
+          System.out.println("Y O U  A R E  A  W I N N E R");
+          System.exit(0);
+        }
 
-        //machine turn
+        
+        //machine turn to take stones randomly between 1-3 stones only but not more than what is left in variable stonesRemain
+       
+        Random random = new Random();
+        int machineTakes = random.nextInt(3) + 1;
+        stonesRemain = stonesRemain - machineTakes;
+          if(stonesRemain<=0)
+          {
+            System.out.println("AI Wins!!! You Lose");
+            System.exit(0);
+          }
+        
+        System.out.println("AI took "+ machineTakes + " stones");
+        System.out.println("");
+        System.out.println("Stones Remaining =" + stonesRemain);
 
-        //calculate number of stone remaining, print
-
-        // check win
+        // check if AI is the winner
+        
+        
         
       }
 
-
-      
     }
-
     
   }
 

@@ -8,7 +8,8 @@ import java.util.Scanner;
 //
 
 public class GMN {
-public static void main(String[] args){
+public static void main(String[] args)
+{
 
 int guess=200;
   
@@ -26,6 +27,7 @@ System.out.println("I am thinking of a number from 1 to 100. ");
   guess = in.nextInt();
   int diff=guess-number;
 
+  
 // Evaluate the user input if it is equal to the value of the assumed guess
 if(diff==0){
   System.out.println("Your guess is correct!!!");
