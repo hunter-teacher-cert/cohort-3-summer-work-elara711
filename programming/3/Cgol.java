@@ -127,14 +127,16 @@ public class Cgol
   //generate and return a new board representing next generation
   public static char[][] generateNextBoard(char[][] board)
   {
+    //generate new board to replace initial board
+    char[][] newBoard = new char[board.length][board[0].length];
     for (int i = 0; i < board.length; i++)
     {
       for (int j = 0; j < board[0].length; j++)
       {
-        board[i][j] = getNextGenCell(board,i,j);
+        newBoard[i][j] = getNextGenCell(board,i,j);
       }
     } 
-    return board;
+    return newBoard;
   }
 
   public static void main(String[] args)
@@ -146,7 +148,7 @@ public class Cgol
     // setCell(board, 0, 0, 'X');
     // setCell(board, 0, 1, 'X');
     // setCell(board, 1, 0, 'X');
-    board = pickRandomPosition(10,board);
+    board = pickRandomPosition(20,board);
     int n = countNeighbors(board,1,1);
     // TASK:
     // Once your initial version is running,
