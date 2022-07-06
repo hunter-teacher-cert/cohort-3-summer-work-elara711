@@ -52,8 +52,9 @@ public class ArrayPractice{
      buildIncreasingArray(5,3,2) will return an array
      with the values 3,5,7,9,11 (five values, starting with 3 with a step size of 2)
   */
-
   // [3, 5, 7, 9, 11]
+
+  
   public static int[] buildIncreasingArray( int size, int startValue, int step )
   {
     int[] data = new int[size];
@@ -256,6 +257,9 @@ public class ArrayPractice{
   }
 
 
+
+  
+
   public static void main( String[] args )
   {
 
@@ -268,7 +272,9 @@ public class ArrayPractice{
     findMaxValue(data);
     
     int[] data2 = buildIncreasingArray(10,5,3);
+    
     printArray(data);
+    
     isSorted(data);
     int[] tester = {5, 7, 12, 10, 11}; //try this one!
     printArray(tester);
