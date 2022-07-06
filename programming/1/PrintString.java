@@ -4,24 +4,24 @@ import java.io.*;
 import java.util.*;
 import java.lang.Math;
 
-public class Prac
+public class PrintString
   {
     public static void main( String[]  args  )
     {
-      String mString=("This is the first day of everyday....");
+      String mString=("Hello and Goodbye");
       System.out.println();
 
       System.out.println("Text here "+ mString);
       
       int qNumOfChars=mString.length();
       
-      System.out.println(mString + "is "+ qNumOfChars);
+      System.out.println(mString + " is "+ qNumOfChars+ " long");
 
       // Scanner input = new Scanner(System.in);
       
       int anInt = 0;
 
-      System.out.println(anInt);
+      // System.out.println(anInt);
       
       while(anInt  <  qNumOfChars)
         {
