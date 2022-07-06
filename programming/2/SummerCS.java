@@ -1,8 +1,5 @@
 /*
 This code demos a countdown timer
-
-
-
 */
 
 import java.io.*;
@@ -12,8 +9,8 @@ import java.lang.Math;
 public class SummerCS {
 
 public static void main(String[] args) {
-  int x = 3;       // initialize the value of control variable x to 3
-  countdown(x);    // calls the method countdown and passes the value 3
+  int x =100;       // initialize the value of control variable x to 3
+  countdown(x);    // calls the method countdown and passes the valuep
 }
 
 public static void countdown(int n) {

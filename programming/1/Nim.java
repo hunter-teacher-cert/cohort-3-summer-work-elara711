@@ -26,11 +26,13 @@ public class Nim
         // prompt user input (user turn)
         System.out.print("Your Turn: Take 1-3 stones.");
         stonesTaken  =  input.nextInt();
+       
         System.out.println("You took "+ stonesTaken + " stones.");        
         // calculate number of stone remaining, print
         stonesRemain-=stonesTaken;
         System.out.println("Stones Remaining =" + stonesRemain);
         System.out.println(""); 
+
         // check for win condition
         if(stonesRemain==0)
         {
