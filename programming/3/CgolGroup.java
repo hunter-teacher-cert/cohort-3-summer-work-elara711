@@ -33,6 +33,24 @@ public class Cgol
     return board;
   }
 
+  //create random living cells
+  public static char[][] pickRandomPosition(int liveCells, char[][] board)
+  {
+    int i = 0;
+    int randomRow, randomColumn;
+    Random rand = new Random();
+    
+    while (i <= liveCells)
+    {
+      randomRow = rand.nextInt(board.length);
+      randomColumn = rand.nextInt(board[0].length); 
+      
+      setCell(board,randomRow,randomColumn,'X');
+      i++;
+    }
+    return board;
+  }
+  
   //print the board to the terminal
   public static void printBoard(char[][] board)
   {
@@ -45,7 +63,6 @@ public class Cgol
       System.out.println("");
     }
   }
-
 
   //set cell (r,c) to val
   public static void setCell(char[][] board, int r, int c, char val)
@@ -99,7 +116,7 @@ public class Cgol
       // board[r][c] = 'X';
       return 'X';
     }
-    else if (board[r][c] == 'X' && (neighbors == 1 || neighbors > 3))
+    else if (board[r][c] == 'X' && (neighbors == 0 || neighbors == 1 || neighbors > 3))
     {
       return 'd';
     }
@@ -110,36 +127,43 @@ public class Cgol
   //generate and return a new board representing next generation
   public static char[][] generateNextBoard(char[][] board)
   {
+    //generate new board to replace initial board
+    char[][] newBoard = new char[board.length][board[0].length];
     for (int i = 0; i < board.length; i++)
     {
       for (int j = 0; j < board[0].length; j++)
       {
-        board[i][j] = getNextGenCell(board,i,j);
+        newBoard[i][j] = getNextGenCell(board,i,j);
       }
     } 
-    return board;
+    return newBoard;
   }
 
   public static void main(String[] args)
   {
     char[][] board;
     //change it back to 25x25
-    board = createNewBoard(5,5);
+    board = createNewBoard(10,10);
     //breathe life into some cells:
-    setCell(board, 0, 0, 'X');
-    setCell(board, 0, 1, 'X');
-    setCell(board, 1, 0, 'X');
-    int n = countNeighbors(board,1,1);
+    // setCell(board, 0, 0, 'X');
+    // setCell(board, 0, 1, 'X');
+    // setCell(board, 1, 0, 'X');
+    board = pickRandomPosition(20,board);
+    //int n = countNeighbors(board,1,1);
     // TASK:
     // Once your initial version is running,
     // try out different starting configurations of living cells...
     // (Feel free to comment out the above three lines.)
     System.out.println("Gen X:");
     printBoard(board);
-    System.out.println(n);
+    //System.out.println(n);
     System.out.println("--------------------------\n\n");
     board = generateNextBoard(board);
     System.out.println("Gen X+1:");
+    printBoard(board);
+    System.out.println("--------------------------\n\n");
+    board = generateNextBoard(board);
+    System.out.println("Gen X+2:");
     printBoard(board);
     System.out.println("--------------------------\n\n");
     

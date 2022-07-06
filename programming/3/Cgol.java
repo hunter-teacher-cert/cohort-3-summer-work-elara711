@@ -116,7 +116,7 @@ public class Cgol
       // board[r][c] = 'X';
       return 'X';
     }
-    else if (board[r][c] == 'X' && (neighbors == 1 || neighbors > 3))
+    else if (board[r][c] == 'X' && (neighbors == 0 || neighbors == 1 || neighbors > 3))
     {
       return 'd';
     }
@@ -149,14 +149,14 @@ public class Cgol
     // setCell(board, 0, 1, 'X');
     // setCell(board, 1, 0, 'X');
     board = pickRandomPosition(20,board);
-    int n = countNeighbors(board,1,1);
+    //int n = countNeighbors(board,1,1);
     // TASK:
     // Once your initial version is running,
     // try out different starting configurations of living cells...
     // (Feel free to comment out the above three lines.)
     System.out.println("Gen X:");
     printBoard(board);
-    System.out.println(n);
+    //System.out.println(n);
     System.out.println("--------------------------\n\n");
     board = generateNextBoard(board);
     System.out.println("Gen X+1:");
