@@ -10,8 +10,8 @@ public class Node{
   }
 
   public Node(String data){
-    this.data = data;
-    this.next = null;
+    this.data = data;//instance variable, data
+    this.next = null;//instance variable, next (null)
 
   }
 
