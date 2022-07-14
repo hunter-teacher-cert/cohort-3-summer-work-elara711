@@ -2,7 +2,7 @@ public class Driver{
   public static void main(String[] args) {
 
     //Create node setup
-    Node p = new Node();//declares the node object
+    Node p = new Node();
     Node n1 = new Node("5");//n1 holds value of 5, next is null
     Node n2 = new Node("10");//n2 holds value of 10, next is null
     Node n3 = new Node("15");//n3 holds value of 15, next is null
@@ -24,11 +24,10 @@ public class Driver{
     n6.setNext(n3);//n6 is pointing at n3
     n2.setNext(n6);//n2 is now pointing at n6
 
-      Node currentNode = p;//this establishes p as the first object that begins pointing
-      for (int i = 0; currentNode.getNext() != null; i++)//going though loop as long as get.Next is not null
+        //this establishes node n (with the initial value p) as the start of the list 
+      for (Node n = p; n.getNext() != null; n = n.getNext())//going though loop as long as get.Next is not null
         {  
-          System.out.println(currentNode.getData());//prints what's in our current node then,
-          currentNode = currentNode.getNext();//go to the next one
+          System.out.println(n.getData());//prints what's in our current node
         }
       
     // System.out.println(n1.getNext().getData());//this will print out 10 (from original n2)
