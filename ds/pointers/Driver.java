@@ -25,7 +25,7 @@ public class Driver{
     n2.setNext(n6);//n2 is now pointing at n6
 
         //this establishes node n (with the initial value p) as the start of the list 
-      for (Node n = p; n.getNext() != null; n = n.getNext())//going though loop as long as get.Next is not null
+      for (Node n = p; n != null; n = n.getNext())//going though loop as long as get.Next is not null
         {  
           System.out.println(n.getData());//prints what's in our current node
         }
