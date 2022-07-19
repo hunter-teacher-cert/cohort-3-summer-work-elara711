@@ -181,26 +181,29 @@ public class AlPractice{
 
     // Uncomment these to test buildRandomList
     al = buildRandomList(10,100);
+    System.out.println("Result of buildRandomList");
     System.out.println(al);
 
     // Uncomment these to test swapElements
     swapElements(al,2,6);
+    System.out.println("Result of swapElements");
     System.out.println(al);
 
     // Uncomment these to test removeValue
+    
     al.add(5);
     al.add(10);
     al.add(5);
     al.add(13);
     System.out.println(al);
+    System.out.println("Result of sumOfList(al)");
     System.out.println(sumOfList(al));
     al.set(2,5);
     al.set(3,5);
     System.out.println(al);
     removeValue(al,5);
+    System.out.println("after removeValue()");
     System.out.println("\nThis is al:"+al);
-    
-
     System.out.println("\nThis is the sumlists (al,al)");
     System.out.println(sumLists(al, al));
 

@@ -6,8 +6,8 @@ For all attempted methods, make sensible decisions for error and
 edge cases (such as indexing out of bounds).
 Basic
 -----
-add(string value)
-get(int index);
++add(string value)
++get(int index);
 toString()
 Intermediate (at least add, size + one of the other two)
 ------------
@@ -62,14 +62,32 @@ public class LinkedList{
   Return a string representation of the list
   */
   public String toString(){
-    return "";
+    Node walker = head;
+    String str = "";
+    while (walker != null)
+      {
+        str = str + walker.toString();
+        walker = walker.getNext();
+      }
+    return str + "null";
   }
 
   /**
   returns the number of elements in the list
   */
   public int size(){
-    return 0;
+    Node walker = head;
+    int counter = 0;
+
+    while (walker != null)
+      {
+        walker = walker.getNext();
+        counter++;
+      }
+
+
+
+    return counter;
   }
 
 
@@ -127,17 +145,7 @@ public class LinkedList{
   public void remove(int index){
   }
 
-public static void main(String[] args) {
-      LinkedList l1 = new LinkedList();
-      l1.add("Hello");
-      l1.add("World");
-      l1.add("Hello World Together");
-      Node walker = l1.head;
-      while (walker != null) {
-        System.out.print(walker);
-        walker = walker.getNext();
-      }
-    }
+
 
   
 }
