@@ -1,3 +1,6 @@
+
+
+
 import java.io.*;
 import java.util.*;
 
@@ -58,6 +61,24 @@ public class LinkedList{
     return walker.getData();
   }
 
+  public Node get_Helper(int index)
+  {
+    Node walker = head;
+    for (int i = 0; i < index; i++)
+      {
+        if (walker == null || index < 0)
+        {
+          return null;
+        }
+        else
+        {
+          walker = walker.getNext();
+        }
+      }
+    return walker;
+  }
+  
+
   /**
   Return a string representation of the list
   */
@@ -85,8 +106,6 @@ public class LinkedList{
         counter++;
       }
 
-
-
     return counter;
   }
 
@@ -103,7 +122,27 @@ public class LinkedList{
   add(1,"z") results in:
   "a"-> "z" -> "b" -> "c" -> "d"
   */
-  public void add(int index, String value){
+  public void add(int index, String value)
+  {
+    if (index == 0) // if in the beginning head node
+    {
+      this.add(value);
+      return;
+    }
+    else if (index == this.size()) // this is the last node
+    {  
+       Node previous = get_Helper(index - 1);
+       Node n = new Node (value);
+       previous.setNext(n);
+    }
+    else
+    {
+      Node previous = get_Helper(index - 1);//created variable for previous
+      Node n = new Node (value);//created variable for object that we are adding
+      Node next = get_Helper(index);//created variable for the next node
+      n.setNext(next);//set n to point at next variable
+      previous.setNext(n); // set previous to point at n variable
+    }
 
   }
 
@@ -116,8 +155,21 @@ public class LinkedList{
   "a"->"b"->"c"->"d"->"e"
   indexOf("d") would return 3 since "d" is at location 3.
   */
-  public int indexOf(String value){
-    return 0;
+  public int indexOf(String value)
+  {
+    Node walker = head;
+    int counter = 0;
+    while (walker != null)
+      {
+        if (walker.getData() != value)
+        {
+          walker = walker.getNext();
+          counter++;
+        }
+        else
+          return counter;
+      }
+    return -1;
   }
 
 

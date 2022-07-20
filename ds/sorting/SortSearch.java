@@ -1,10 +1,3 @@
-* Data Structures in a High Level Language
-
-Place all assignments for the Data Structures class in this folder as directed by the course instructors.
-
-
-link to patricia: https://replit.com/@Halseyjhs/cohort-3-summer-work-pelfers21-1#ds/Sort/Sort.draw
-
 import java.io.*;
 import java.util.*;
 
