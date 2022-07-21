@@ -1,27 +1,16 @@
-//Collaborators: Usman Ahmed, Ed Hawkins, Adam Driggers, Moo Joon Park
+/** provided by Z **/
 
 import java.io.*;
 import java.util.*;
 
-/*
-Sort Project:
-Part 1:  (BASIC)
-  1. Analyze the two constructors - try to figure out how they work.
-  2. Compile and run the program (SortProjectDriver.java and SortProject.java) and confirm
-  the behavior of the constructors.
-  Part 2: (BASIC)
-  1. Read the description of findSmallestIndex and complete the method.
-  2. Uncomment the lines in SortProjectDriver to test.
-  Part 3: (INTERMEDIATE)
-  1. Complete the sort method - read comments for description
-  2. Uncomment the lines in sortProjectDriver to test.
-Search Project:
-  1. Complete the linear search (BASIC)
+/* 
+   Search Project:
+   1. Complete the linear search (BASIC)
   2. Complete the binary search (Intermediate)
   3. Complete the recursive version of binary search (Advanced)
 */
 
-public class SortSearch{
+public class SortSearchReference{
 
     /* Sort project starts here */
     
@@ -31,25 +20,27 @@ public class SortSearch{
     private Random r; 
 
     
-    public SortSearch(){
-	    data = new ArrayList<Integer>();
-	    r = new Random();
-	    for (int i=0;i<15;i++){
-	      data.add(r.nextInt(20));
-	    }
+    public SortSearchReference(){
+	data = new ArrayList<Integer>();
+	r = new Random();
+	for (int i=0;i<15;i++){
+	    data.add(r.nextInt(20));
+	}
+	
     }
     
-    public SortSearch(int size){
-	    data = new ArrayList<Integer>();
-	    r = new Random();
-	    for (int i=0;i<size;i++){
-	      data.add(r.nextInt(20));
-	    }  
+    public SortSearchReference(int size){
+	data = new ArrayList<Integer>();
+	r = new Random();
+	for (int i=0;i<size;i++){
+	    data.add(r.nextInt(20));
+	}
+	
     }
 
     /* Convenience function to get data out of the ArrayList from the driver */
     public int get(int index){
-	    return this.data.get(index);
+	return this.data.get(index);
     }
     
 
@@ -64,54 +55,52 @@ public class SortSearch{
       if start was 2 (start at index 2, value 10) then it would return 3
       which is the index of the value 6 which is the index with the
       smallest value from start to end
+
       On the otherh and, if start was 0, then the method would
       return 1 since the value 3 is in index 1 and that is the smallest.
       
     */
-    public int findSmallestIndex(int start)
-      {
-	      int smallIndex = start;
-
-          for( int i = start; i < data.size(); i++)
-            {
-              if (data.get(i) < data.get(smallIndex))
-              {
-                smallIndex = i;
-              }
-                
-            }
+    public int findSmallestIndex(int start){
+	int smallIndex = start;
+	int i;
+	for (i=start;i<data.size();i++){
+	    if (data.get(i) < data.get(smallIndex)){
+		smallIndex = i;
+	    }
+	    
+	}
 	
-	      return smallIndex;
-      }
+	return smallIndex;
+    }
 
 
     /**
        Implement the selection sort algorithm by sorting the ArrayList
        data in place.
+
        Algorithm:
        Loop a variable that represents the ArrayList index from
        0 to the end of the ArrayList.
          For each index, find the smallest from that Location
 	 to the end of the array and swap it with that index.
+
 	 
        
-    */
-    public void sort()
-      {
-        int temp;
-        for(int i = 0; i < data.size() - 1; i++)
-          {
-            int smallIndex = findSmallestIndex(i); //returns smallest index from i to the end
-            //give temp the data at i
-            temp = data.get(i);
-            //give data at i the data of the smallest index
-            data.set(i, data.get(smallIndex));
-            //give data the value at smallest index
-            data.set(smallIndex, temp);
-                    
-          }
 
-      }
+    */
+    public void sort(){
+	int i;
+	int tmp;
+	int smallIndex;
+	for (i=0;i<data.size();i++){
+	    smallIndex = findSmallestIndex(i);
+	    tmp = data.get(smallIndex);
+	    data.set(smallIndex,data.get(i));
+	    data.set(i,tmp);
+	}
+	
+
+    }
 
 
 
@@ -120,14 +109,21 @@ public class SortSearch{
     /**
        performs a linear search. Returns the index of the first occurence of
        value in the ArrayList data or -1 if not found.
+
        This works by starting at the first element and searching one element at a time 
        until either the element is found or you've looked at all the elements.
+
        This algorithm works on any ArrayList.
+
     */
     public int linearSearch(int value){
+	int i = 0;
+	for (i=0;i<data.size();i++){
+	    if (data.get(i)==value)
+		return i;
+	}
+	return -1;
 	
-	
-	return 0; // replace this return
     }
     
     /**
@@ -137,12 +133,30 @@ public class SortSearch{
     */
     public int binarySearch(int value){
 
-	// create assign variables  representing the high, low and middle indices 
+	// create assign variables  representing the high, low and middle indices
+	int high, low, middle;
+
+	high = data.size();
+	low  = 0;
+	
 	// while we're not done:
 	//   if the item is at data.get(middle), return middle
 	//   otherwise, update high, low, and middle
+	while (high >= low){
+	    middle = (high+low)/2;
 
-	return 0;
+	    if (data.get(middle)==value){
+		return middle;
+	    } else if (data.get(middle) > value){
+		high = middle - 1;
+	    } else {
+
+		low = middle + 1;
+	    }
+	    
+		}
+	
+	return -1;
 	    
     }
     
@@ -153,11 +167,23 @@ public class SortSearch{
     */
 
     public int binarySearchRecursive(int value, int lowIndex, int highIndex){
-
-	// refer to class discussion
+	if (lowIndex > highIndex)
+	    return -1;
 	
-	return 0;
+	int middle = (lowIndex + highIndex)/2;
+
+	if (data.get(middle)==value){
+	    return middle;
+	} else if (data.get(middle) > value){
+	    return binarySearchRecursive(value,lowIndex,middle-1);
+	} else {
+	    return binarySearchRecursive(value,middle+1,highIndex);
+	}
+	
 	    
+    }
+    public int binarySearchRecursive(int value){
+	return binarySearchRecursive(value,0,data.size());
     }
     
 	
