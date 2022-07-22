@@ -1,4 +1,3 @@
-
 # Scaffolding Techniques
 #### by Team 2: Algorithm2.0
 Roster: Maxwell Y, Anand M, Joel B, Erwin L
@@ -6,7 +5,7 @@ Roster: Maxwell Y, Anand M, Joel B, Erwin L
   
 * * *
 ### Technique 1: TASK SEQUENCING/ SLICING / SPIRALING
-![spiral](https://d384mi819045d8.cloudfront.net/i/_/regular/82157.jpg~q=85)
+![]( https://c.tenor.com/uAKW6ESyWgMAAAAS/spiral.gif )
 
 #### Well-suited to...
 * related concepts build on each other
@@ -19,7 +18,7 @@ Roster: Maxwell Y, Anand M, Joel B, Erwin L
 * * *
 ### Technique 2: PSEUDOCODE
 plain language description of the steps in an algorithm.
-![]()
+![](https://media.geeksforgeeks.org/wp-content/uploads/flowchart-3.jpg)
 
 #### Variations:
 * Pseudocode written as comments into provided code
@@ -44,7 +43,7 @@ https://www.smartdraw.com/flowchart/examples/
 * * * *
 ### Technique 3: MIXED-LEVEL GROUPING
 Grouping advanced students with beginner students (Group should contain different skill levels)
-![](  )
+![]( https://www.theconfidentteacher.com/wp-content/uploads/2016/01/pawns-groups.jpg )
 
 #### Well-suited to...
 * pair programming
